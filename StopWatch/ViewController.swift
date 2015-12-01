@@ -159,6 +159,13 @@ class ViewController: UIViewController , UITableViewDelegate, UITableViewDataSou
         
         // Configure the cell
         
+        
+        cell.textLabel?.text = "Lap \(laps.count-indexPath.row)"
+        cell.detailTextLabel?.text = laps[indexPath.row]
+        
+        
+        
+        
         return  cell
 
     }
