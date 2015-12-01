@@ -24,16 +24,17 @@
                                     <navigationItem title="Stop Watch" id="Knw-qX-5W8"/>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="00:05.88" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tCl-cz-FUJ">
-                                <rect key="frame" x="0.0" y="89" width="320" height="72"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z8Y-sL-yLg">
+                                <rect key="frame" x="71" y="169" width="60" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="72" id="Drh-TQ-sj6"/>
+                                    <constraint firstAttribute="height" constant="60" id="9gG-kX-0Rt"/>
+                                    <constraint firstAttribute="width" constant="60" id="g2g-MK-GNB"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="70"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <state key="normal" backgroundImage="start.png"/>
+                                <connections>
+                                    <action selector="startStop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jNZ-dj-6z5"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9mj-9Q-IQL">
                                 <rect key="frame" x="186" y="169" width="60" height="60"/>
                                 <constraints>
@@ -41,6 +42,9 @@
                                     <constraint firstAttribute="width" constant="60" id="wfV-Rq-v37"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="lap.png"/>
+                                <connections>
+                                    <action selector="lapReset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9SC-pT-vqD"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nNP-2g-j0f">
                                 <rect key="frame" x="0.0" y="242" width="320" height="326"/>
@@ -56,14 +60,16 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z8Y-sL-yLg">
-                                <rect key="frame" x="71" y="169" width="60" height="60"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="00:05.88" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tCl-cz-FUJ">
+                                <rect key="frame" x="0.0" y="89" width="320" height="72"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="9gG-kX-0Rt"/>
-                                    <constraint firstAttribute="width" constant="60" id="g2g-MK-GNB"/>
+                                    <constraint firstAttribute="height" constant="72" id="Drh-TQ-sj6"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="start.png"/>
-                            </button>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="70"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
@@ -86,6 +92,12 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="lapResetButton" destination="9mj-9Q-IQL" id="Q4m-km-fcr"/>
+                        <outlet property="lapsTableView" destination="nNP-2g-j0f" id="uIS-Sm-90c"/>
+                        <outlet property="startStopButton" destination="Z8Y-sL-yLg" id="UGf-KD-Iuk"/>
+                        <outlet property="stopWatchLabel" destination="tCl-cz-FUJ" id="ahQ-P9-06e"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

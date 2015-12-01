@@ -8,16 +8,88 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController , UITableViewDelegate, UITableViewDataSource {
+    
+    
+
+
+    
+    var laps: [String] = []
+    
+    var timer = NSTimer()
+    var minutes: Int = 0
+    var seconds: Int = 0
+    var fractions: Int = 0
+    
+    
+    var stopWatchString: String = ""
+    
+    var startStopWatch: Bool =  true
+    var addLap: Bool = false
+    
+    
+    
+    @IBOutlet weak var stopWatchLabel: UILabel!
+    @IBOutlet weak var lapsTableView: UITableView!
+    
+    @IBOutlet weak var startStopButton: UIButton!
+    @IBOutlet weak var lapResetButton: UIButton!
+    
+    
+    @IBAction func startStop(sender: AnyObject) {
+        
+        
+        
+    }
+    
+    
+    @IBAction func lapReset(sender: AnyObject) {
+        
+        
+    }
+    
+    
+    func updateStopWatch(){
+    
+    
+    }
+    
+    
+    
+    // Table View Methods
+    
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "Cell")
+        
+        // Configure the cell
+        
+        return  cell
+
+    }
+    
+    
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return  laps.count
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
+
+        
+        
+        
+            }
+
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
     }
 
 
