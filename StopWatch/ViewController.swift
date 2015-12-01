@@ -80,6 +80,33 @@ class ViewController: UIViewController , UITableViewDelegate, UITableViewDataSou
     
     @IBAction func lapReset(sender: AnyObject) {
         
+        if addLap == true{
+            
+            laps.insert(stopWatchString, atIndex: 0)
+            lapsTableView.reloadData()
+            
+            
+            
+            
+            
+        }else{
+            
+             lapResetButton.setImage(UIImage(named:"lap"), forState: UIControlState.Normal)
+             laps.removeAll(keepCapacity: false)
+             lapsTableView.reloadData()
+            
+            
+            fractions = 0
+            seconds = 0
+            minutes = 0
+            
+            stopWatchString = "00:00.00"
+            stopWatchLabel.text = stopWatchString
+            
+            
+            
+        }
+        
         
     }
     
@@ -108,9 +135,9 @@ class ViewController: UIViewController , UITableViewDelegate, UITableViewDataSou
         
         
         
-        let fractionString  = fractions > 9 ? "\(fractions)" : "0\(fractions)"
-        let secondString = seconds > 9 ? "\(seconds)" : "0\(seconds)"
-        let minuteString = minutes > 9 ? "\(minutes)" : "0\(minutes)"
+        let fractionString  = fractions > 9 ? "\(fractions)":"0\(fractions)"
+        let secondString = seconds > 9 ? "\(seconds)":"0\(seconds)"
+        let minuteString = minutes > 9 ? "\(minutes)":"0\(minutes)"
         
         stopWatchString = "\(minuteString) : \(secondString). \(fractionString)"
         
