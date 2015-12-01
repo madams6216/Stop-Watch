@@ -39,6 +39,41 @@ class ViewController: UIViewController , UITableViewDelegate, UITableViewDataSou
     @IBAction func startStop(sender: AnyObject) {
         
         
+        if startStopWatch == true {
+            
+            
+            
+            timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector( "updateStopWatch"), userInfo: nil, repeats: true)
+            
+            startStopWatch = false
+            
+            
+            debugPrint("StartStop")
+              startStopButton.setImage(UIImage(named: "stop"), forState: UIControlState.Normal)
+            
+              lapResetButton.setImage(UIImage(named:"lap"), forState: UIControlState.Normal)
+            
+              addLap = true
+            
+            
+        }else{
+            
+            
+         timer.invalidate()
+        startStopWatch = true
+            
+            
+            startStopButton.setImage(UIImage(named: "start"), forState: UIControlState.Normal)
+            
+            lapResetButton.setImage(UIImage(named:"reset"), forState: UIControlState.Normal)
+            
+            addLap = false
+
+            
+            
+        }
+        
+        
         
     }
     
@@ -49,8 +84,40 @@ class ViewController: UIViewController , UITableViewDelegate, UITableViewDataSou
     }
     
     
-    func updateStopWatch(){
+    func updateStopWatch() {
     
+        fractions += 1
+        
+        if fractions == 100{
+            
+           seconds += 1
+            fractions = 0
+            
+            
+            
+        }
+        
+        
+        if seconds == 60{
+            
+           minutes  += 1
+            seconds = 0
+            
+            
+        }
+        
+        
+        
+        let fractionString  = fractions > 9 ? "\(fractions)" : "0\(fractions)"
+        let secondString = seconds > 9 ? "\(seconds)" : "0\(seconds)"
+        let minuteString = minutes > 9 ? "\(minutes)" : "0\(minutes)"
+        
+        stopWatchString = "\(minuteString) : \(secondString). \(fractionString)"
+        
+        stopWatchLabel.text = stopWatchString
+        
+        
+        
     
     }
     
@@ -80,6 +147,11 @@ class ViewController: UIViewController , UITableViewDelegate, UITableViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        stopWatchLabel.text = "00:00.00"
+        lapsTableView.delegate = self
+        lapsTableView.dataSource = self
+        
         
         
         
